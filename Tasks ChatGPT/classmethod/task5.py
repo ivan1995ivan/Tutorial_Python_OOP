@@ -21,8 +21,8 @@ class BankAccount:
 
     @classmethod
     def from_input_string(cls, input_string):
-        st = input_string.split(',')
-        return cls(account=st[0], balance=st[1])
+        account, balance = input_string.strip().split(',')
+        return cls(account, int(balance))
 
 account1 = BankAccount("1234", 1000)
 account1.deposit(500)
