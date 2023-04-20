@@ -38,6 +38,21 @@ class Vehicle:
         return int(y.strftime("%Y"))-self.year
 
 
+class Car(Vehicle):
+
+    def __init__(self, make, model, year, num_doors, weight=0,):
+        super().__init__(make, model, year, weight)
+        self.num_doors = num_doors
+
+    def display_info(self):
+        print(f'Марка: {self.make}, Модель: {self.model}, Год выпуска: {self.year}, Вес: {self.weight}, \
+Количество дверей: {self.num_doors}')
+
+
 v1 = Vehicle("Audi", "A3", 2015, 1500)
-# v1.display_info() # Выводит "Марка: Audi, Модель: A3, Год выпуска: 2015, Вес: 1500"
+v1.display_info() # Выводит "Марка: Audi, Модель: A3, Год выпуска: 2015, Вес: 1500"
 print(v1.get_age()) # Выводит количество лет, например 7
+
+c1 = Car("Ford", "Focus", 2010, num_doors=4)
+c1.display_info() # Выводит "Марка: Ford, Модель: Focus, Год выпуска: 2010, Вес: 0, Количество дверей: 4"
+print(c1.get_age()) # Выводит количество лет, например 12
