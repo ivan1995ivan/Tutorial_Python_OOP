@@ -20,6 +20,7 @@ display_info (вывод информации) - выводит информац
 Марка: <make>, Модель: <model>, Год выпуска: <year>, Вес: <weight>, Количество дверей: <num_doors>
 get_age (возраст) - возвращает количество лет, прошедших с момента выпуска автомобиля.
 Для вычисления возраста использовать текущий год (можно использовать модуль datetime).'''
+from datetime import datetime, date
 
 
 class Vehicle:
@@ -30,4 +31,13 @@ class Vehicle:
         self.weight = weight
 
     def display_info(self):
-        print()
+        print(f'Марка: {self.make}, Модель: {self.model}, Год выпуска: {self.year}, Вес: {self.weight}')
+
+    def get_age(self):
+        y = datetime.now()
+        return int(y.strftime("%Y"))-self.year
+
+
+v1 = Vehicle("Audi", "A3", 2015, 1500)
+# v1.display_info() # Выводит "Марка: Audi, Модель: A3, Год выпуска: 2015, Вес: 1500"
+print(v1.get_age()) # Выводит количество лет, например 7
